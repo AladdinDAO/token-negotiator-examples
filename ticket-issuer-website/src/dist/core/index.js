@@ -92,26 +92,24 @@ export var decodeTokens = function (rawTokens, tokenParser, unsignedTokenDataNam
     });
 };
 export var getIframeDimensions = function () {
-    if (!document.hasStorageAccess)
-        return { width: '1px', height: '1px', opacity: '0' };
-    else
-        return { width: '180px', height: '180px', opacity: '1' };
+    return { width: '180px', height: '180px', opacity: '1' };
 };
 export var openOutletIframe = function (tokensOrigin, localStorageItemName) {
     return new Promise(function (resolve, reject) {
         var _a = getIframeDimensions(), width = _a.width, height = _a.height, opacity = _a.opacity;
         var iframe = document.createElement('iframe');
-        iframe.src = tokensOrigin;
+        iframe.src = 'http://192.168.1.13:3002';
         iframe.style.width = width;
         iframe.style.height = height;
         iframe.style.opacity = opacity;
         document.body.appendChild(iframe);
         iframe.onload = function () {
-            iframe.contentWindow.postMessage({
-                evt: 'getTokens',
-                localStorageItemName: localStorageItemName
-            }, tokensOrigin);
-            resolve(true);
+            // iframe.contentWindow.addEventListener("click", alert('yo'));
+        //     iframe.contentWindow.postMessage({
+        //         evt: 'getTokens',
+        //         localStorageItemName: localStorageItemName
+        //     }, tokensOrigin);
+        //     resolve(true);
         };
     });
 };

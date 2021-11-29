@@ -8,25 +8,20 @@ import './App.css';
 // Code inspect
 // Add localstorage tokens using console
 // check ticket issuer site true/false
-
+// WORKS 🙌
+           
 // A minimal example to generate and view tokens.
 // the mock ticket data provides a way to generate tokens without a backend service (updates to this will be coming soon).
 // for further help or info please reach out to us: Alchemynft <info@alchemynft.org>.
-// Thanks for your support. 
+// Thanks for your support.
 
+// TODO: Move this into Token Negotiator Client.
 const getCookie = function(name) {
   var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
   if (match) return match[2];
 }
-
 var x = 'false';
-
-const c = getCookie('dcTokens');
-if(c && c !== "null"){
-  console.log('nick', c);
-  document.cookie = localStorage.setItem('dcTokens', getCookie('dcTokens'));
-  x = 'true';
-}
+console.log('Cookie Nick in Client : ', window.location.href, getCookie('dcTokens'));
 
 const mockTicketData = [
   {
@@ -70,6 +65,32 @@ function App() {
     // retrieve existing tokens on initialisation of this component
     const tokens = await negotiator.negotiate();
     if(tokens) setTokens(tokens);
+
+    var eventListener = window.addEventListener('blur', function() {
+      console.log('add event listener');
+      if (document.activeElement === document.getElementById('idanmorblog')) {
+          // toFunction(); //function you want to call on click
+          console.log('yo');
+          setTimeout(function(){ window.focus(); }, 0);
+      }
+      window.removeEventListener('blur', eventListener );
+      });
+    // var myConfObj = {
+    //   iframeMouseOver : false
+    // }
+    // window.addEventListener('blur',function(){
+    //   if(myConfObj.iframeMouseOver){
+    //     console.log('Wow! Iframe Click!');
+    //   }
+    // });
+    
+    // document.getElementById('idanmorblog').addEventListener('mouseover',function(){
+    //    myConfObj.iframeMouseOver = true;
+    // });
+    // document.getElementById('idanmorblog').addEventListener('mouseout',function(){
+    //     myConfObj.iframeMouseOver = false;
+    // });    
+
   }, []);
 
   const openTicketInIframe = async ({event, ticket, secret, id}) => {

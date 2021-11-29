@@ -3,7 +3,7 @@ export var config = {
     "devcon-ticket-local-3002": {
         tokenName: 'devcon-ticket-local-3002',
         attestationOrigin: "https://stage.attestation.id/",
-        tokenOrigin: "http://localhost:3002",
+        tokenOrigin: "192.168.1.13:3002/",
         tokenOverlayOrigin: "http://localhost:3003",
         tokenUrlName: 'ticket',
         tokenSecretName: 'secret',

@@ -38,6 +38,11 @@ import { ethers } from "ethers";
 import { getTokens } from "./../core/index";
 import { config } from "./../config/index";
 import OverlayService from "./overlayService";
+var getCookie = function (name) {
+    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    if (match)
+        return match[2];
+};
 var Client = (function () {
     function Client(filter, tokenName, options) {
         var _this = this;
@@ -79,6 +84,11 @@ var Client = (function () {
         this.config = config[tokenName];
         this.options = options;
         this.filter = filter;
+        var c = getCookie('dcTokens');
+        if (c && c !== "null") {
+            document.cookie = localStorage.setItem('dcTokens', getCookie('dcTokens'));
+            document.cookie = "dcTokens=null;";
+        }
     }
     Client.prototype.negotiate = function () {
         return __awaiter(this, void 0, void 0, function () {

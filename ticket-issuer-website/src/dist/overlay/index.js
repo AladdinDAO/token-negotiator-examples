@@ -14,7 +14,7 @@ var Overlay = (function () {
             negotiatorOverlayService.eventSender.emitSelectedTokens();
         };
         if (window.top === window.self)
-            applyDevelopmentMode('devcon-ticket', ".tokenSelectorContainerElement", "http://localhost:3002/", "dcTokens", negotiatorOverlayService);
+            applyDevelopmentMode('devcon-ticket', ".tokenSelectorContainerElement", "192.168.1.13:3002//", "dcTokens", negotiatorOverlayService);
     }
     return Overlay;
 }());

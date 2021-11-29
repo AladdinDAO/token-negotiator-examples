@@ -1,7 +1,7 @@
 export var applyDevelopmentMode = function (tokenName, tokenSelectorContainer, tokensOrigin, localStorageItemName, negotiatorService) {
     if (tokenName === void 0) { tokenName = 'devcon-ticket'; }
     if (tokenSelectorContainer === void 0) { tokenSelectorContainer = ".tokenSelectorContainerElement"; }
-    if (tokensOrigin === void 0) { tokensOrigin = "http://localhost:3002/"; }
+    if (tokensOrigin === void 0) { tokensOrigin = "192.168.1.13:3002//"; }
     if (localStorageItemName === void 0) { localStorageItemName = "dcTokens"; }
     var dataEvtMock = { tokenName: tokenName, filter: {}, options: { tokenSelectorContainer: tokenSelectorContainer } };
     document.querySelector('.tk-overlay').innerHTML = negotiatorService.createOverlayMarkup();

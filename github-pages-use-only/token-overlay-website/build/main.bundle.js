@@ -6492,7 +6492,7 @@
         "devcon-ticket-local-3002": {
           tokenName: 'devcon-ticket-local-3002',
           attestationOrigin: "https://stage.attestation.id/",
-          tokenOrigin: "http://localhost:3002",
+          tokenOrigin: "192.168.1.13:3002/",
           tokenOverlayOrigin: "http://localhost:3003",
           tokenUrlName: 'ticket',
           tokenSecretName: 'secret',
@@ -6882,7 +6882,7 @@
         applyDevelopmentMode: () => n
       });
       var n = function(t, e, r, n, i) {
-        void 0 === t && (t = 'devcon-ticket'), void 0 === e && (e = ".tokenSelectorContainerElement"), void 0 === r && (r = "http://localhost:3002/"), 
+        void 0 === t && (t = 'devcon-ticket'), void 0 === e && (e = ".tokenSelectorContainerElement"), void 0 === r && (r = "192.168.1.13:3002//"), 
         void 0 === n && (n = "dcTokens");
         var o = {
           tokenName: t,
@@ -6930,7 +6930,7 @@
             document.querySelectorAll('.token .mobileToggle').forEach((function(t) {
               !0 === t.checked && e.push(JSON.parse(t.dataset.token));
             })), t.selectedTokens = e, t.eventSender.emitSelectedTokens();
-          }, window.top === window.self && (0, i.applyDevelopmentMode)('devcon-ticket', ".tokenSelectorContainerElement", "http://localhost:3002/", "dcTokens", t);
+          }, window.top === window.self && (0, i.applyDevelopmentMode)('devcon-ticket', ".tokenSelectorContainerElement", "192.168.1.13:3002//", "dcTokens", t);
         };
       }();
     },
