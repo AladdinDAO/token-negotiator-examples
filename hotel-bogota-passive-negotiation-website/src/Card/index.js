@@ -6,7 +6,16 @@ import './Card.css';
 // Displays a single tickets data
 
 function TokenCard({ tokenInstance, applyDiscount, discount }) {
-  const isSelectedToken = (discount.tokenInstance && discount.tokenInstance.ticketId === tokenInstance.ticketId);
+
+  console.log('discount.tokenInstance', discount.tokenInstance);
+
+  const isSelectedToken = (
+    discount.tokenInstance && 
+    discount.tokenInstance.ticketId === tokenInstance.ticketId &&
+    discount.tokenInstance.ticketClass === tokenInstance.ticketClass &&
+    discount.tokenInstance.devconId === tokenInstance.devconId
+  );
+
   return (
     <div onClick={e => applyDiscount(isSelectedToken ? null : tokenInstance)} className={isSelectedToken ? 'tokenCard selected' : 'tokenCard'}>
       <div className="ticketDetails">

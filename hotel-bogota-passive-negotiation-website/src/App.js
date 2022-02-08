@@ -74,6 +74,8 @@ function App() {
   // When a ticket is present and user applies it, the discount will be shown
   const applyDiscount = async (ticket) => {
 
+    console.log('ticket', ticket);
+
     // toggle room discount offer on/off
     if (!ticket || ticket === null) {
 
@@ -100,10 +102,10 @@ function App() {
       bookingData: { formData }
     }
     fetch(checkoutEndPoint + new URLSearchParams(params)).then(_data => {
-      if(tokenProofData) {
+      if(tokenProofData && tokenProofData.proof) {
         alert('Transaction Complete with token discount, we look forward to your stay with us!');
       } else {
-        alert('Transaction Complete with no discount, we look forward to your stay with us!');
+        alert('Transaction Complete, we look forward to your stay with us!');
       }
     });
   }
